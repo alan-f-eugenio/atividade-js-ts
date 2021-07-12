@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/alan349/atividade-js-ts#readme",
   "dependencies": {
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "prompts": "^2.4.1"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.28.3",
