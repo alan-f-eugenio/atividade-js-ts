@@ -4,7 +4,8 @@
   "description": "Atividade avaliativa de Javascript e Typescript da Pós Dev Fullstack JS - UP 2021",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx -p @babel/core -p @babel/node babel-node --presets @babel/preset-env index.js"
   },
   "repository": {
     "type": "git",
