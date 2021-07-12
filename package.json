@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/alan349/atividade-js-ts/issues"
   },
-  "homepage": "https://github.com/alan349/atividade-js-ts#readme"
+  "homepage": "https://github.com/alan349/atividade-js-ts#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
 }
