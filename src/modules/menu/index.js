@@ -1,21 +1,20 @@
-import chalk from "chalk";
 import prompts from "prompts";
-import { log } from "../../constants";
+import { log, chalk } from "../../log";
 import { searchMovies } from "../api/searchMovies";
 import { listPopularMovies, listTrendingMovies } from "../api/listMovies";
 
 const mainMenu = async () => {
   try {
-    // console.clear();
+    console.clear();
     log(
       chalk.bold.italic.underline(
         "Bem vindo(a) ao menu principal da aplicação!"
       )
     );
     log(chalk.italic.yellow("Opções: "));
-    log(chalk.cyan("1 - Listar filmes mais populares"));
-    log(chalk.cyan("2 - Listar filmes mais aguardados"));
-    log(chalk.cyan("3 - Pesquisar filmes"));
+    log(chalk.cyan("1 - Listar Top 10 Filmes mais Populares"));
+    log(chalk.cyan("2 - Listar Top 10 Filmes mais Aguardados"));
+    log(chalk.cyan("3 - Pesquisar Filmes"));
 
     const askMenuOption = await prompts({
       type: "number",
@@ -26,12 +25,14 @@ const mainMenu = async () => {
           ? true
           : "Opção inválida, digite uma das opções acima.",
     });
-
+    console.clear();
     switch (askMenuOption.option) {
       case 1:
+        log(chalk.bold("Top 10 Filmes mais Populares: \n"));
         listPopularMovies();
         break;
       case 2:
+        log(chalk.bold("Top 10 Filmes mais Aguardados: \n"));
         listTrendingMovies();
         break;
       case 3:
