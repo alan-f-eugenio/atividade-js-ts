@@ -2,6 +2,7 @@ import prompts from "prompts";
 import { log, chalk } from "../../log";
 import { searchMovies } from "../api/searchMovies";
 import { listPopularMovies, listAnticipatedMovies } from "../api/listMovies";
+import { summaryByListPosition } from "../api/listMovies";
 
 const mainMenu = async (firstTime = true) => {
   try {
@@ -50,7 +51,7 @@ const listMoviesMenu = async (list, origin) => {
   try {
     log(
       chalk.bold.italic.underline(
-        "\nDeseja pesquisar a respeito de um dos Filmes listados acima ou retornar ao Menu Principal?"
+        "\nDeseja pesquisar a respeito de um dos Filmes acima ou retornar ao Menu Principal?"
       )
     );
     log(chalk.italic.yellow("Opções: "));
@@ -68,8 +69,16 @@ const listMoviesMenu = async (list, origin) => {
     });
     switch (askMenuOption.option) {
       case 1:
-        log(chalk.bold("Top 10 Filmes mais Populares: \n"));
-        listPopularMovies();
+        const movieListOption = await prompts({
+          type: "number",
+          name: "position",
+          message: "Digite o número do filme da lista:",
+          validate: (option) =>
+            option > 0 && option < 11
+              ? true
+              : "Opção inválida, digite uma das opções da lista acima.",
+        });
+        summaryByListPosition(list, origin, movieListOption.position);
         break;
       case 2:
         mainMenu(false);
