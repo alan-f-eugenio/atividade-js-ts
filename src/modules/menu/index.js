@@ -3,10 +3,16 @@ import { log, chalk } from "../../log";
 import { searchMovies } from "../api/searchMovies";
 import { listPopularMovies, listAnticipatedMovies } from "../api/listMovies";
 
-const mainMenu = async () => {
+const mainMenu = async (firstTime = true) => {
   try {
     console.clear();
-    log(chalk.bold.underline("Bem vindo(a) ao menu principal da aplicação!"));
+    log(
+      chalk.bold.italic.underline(
+        `Seja muito bem vindo(a) ${
+          !firstTime ? "novamente " : ""
+        }ao Menu Principal!`
+      )
+    );
     log(chalk.italic.yellow("Opções: "));
     log(chalk.cyan("1 - Listar Top 10 Filmes mais Populares"));
     log(chalk.cyan("2 - Listar Top 10 Filmes mais Aguardados"));
@@ -24,11 +30,11 @@ const mainMenu = async () => {
     console.clear();
     switch (askMenuOption.option) {
       case 1:
-        log(chalk.bold("Top 10 Filmes mais Populares: \n"));
+        log(chalk.bold.italic("Top 10 Filmes mais Populares: \n"));
         listPopularMovies();
         break;
       case 2:
-        log(chalk.bold("Top 10 Filmes mais Aguardados: \n"));
+        log(chalk.bold.italic("Top 10 Filmes mais Aguardados: \n"));
         listAnticipatedMovies();
         break;
       case 3:
@@ -40,4 +46,38 @@ const mainMenu = async () => {
   }
 };
 
-export { mainMenu };
+const listMoviesMenu = async (list, origin) => {
+  try {
+    log(
+      chalk.bold.italic.underline(
+        "\nDeseja pesquisar a respeito de um dos Filmes listados acima ou retornar ao Menu Principal?"
+      )
+    );
+    log(chalk.italic.yellow("Opções: "));
+    log(chalk.cyan("1 - Pequisar a respeito de um dos Filmes"));
+    log(chalk.cyan("2 - Retornar ao Menu Princial"));
+
+    const askMenuOption = await prompts({
+      type: "number",
+      name: "option",
+      message: "Qual das opções deseja?",
+      validate: (option) =>
+        option > 0 && option < 3
+          ? true
+          : "Opção inválida, digite uma das opções acima.",
+    });
+    switch (askMenuOption.option) {
+      case 1:
+        log(chalk.bold("Top 10 Filmes mais Populares: \n"));
+        listPopularMovies();
+        break;
+      case 2:
+        mainMenu(false);
+        break;
+    }
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export { mainMenu, listMoviesMenu };

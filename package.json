@@ -1,6 +1,6 @@
 {
   "name": "atividade-js-ts",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Atividade avaliativa de Javascript e Typescript da Pós Dev Fullstack JS - UP 2021",
   "main": "index.js",
   "scripts": {
