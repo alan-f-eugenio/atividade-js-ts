@@ -1,11 +1,23 @@
 import { API } from "./index.js";
+import { log, chalk } from "../../log";
+
+const listMovies = (movieList) => {
+  movieList.forEach((movie, index) => {
+    log(
+      `${chalk.yellow(index + 1)} - ${chalk.bold(movie.title)} - ${chalk.italic(
+        `Ano: ${movie.year}`
+      )}`
+    );
+  });
+
+};
 
 const listPopularMovies = async () => {
   try {
     const response = await API.get("movies/popular");
     const { results } = response;
 
-    console.log(results);
+    listMovies(results);
   } catch (err) {
     console.error(err);
   }

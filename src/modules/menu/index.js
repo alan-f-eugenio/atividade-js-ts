@@ -6,11 +6,7 @@ import { listPopularMovies, listTrendingMovies } from "../api/listMovies";
 const mainMenu = async () => {
   try {
     console.clear();
-    log(
-      chalk.bold.italic.underline(
-        "Bem vindo(a) ao menu principal da aplicação!"
-      )
-    );
+    log(chalk.bold.underline("Bem vindo(a) ao menu principal da aplicação!"));
     log(chalk.italic.yellow("Opções: "));
     log(chalk.cyan("1 - Listar Top 10 Filmes mais Populares"));
     log(chalk.cyan("2 - Listar Top 10 Filmes mais Aguardados"));
