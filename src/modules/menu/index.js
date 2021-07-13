@@ -1,7 +1,7 @@
 import prompts from "prompts";
 import { log, chalk } from "../../log";
 import { searchMovies } from "../api/searchMovies";
-import { listPopularMovies, listTrendingMovies } from "../api/listMovies";
+import { listPopularMovies, listAnticipatedMovies } from "../api/listMovies";
 
 const mainMenu = async () => {
   try {
@@ -29,7 +29,7 @@ const mainMenu = async () => {
         break;
       case 2:
         log(chalk.bold("Top 10 Filmes mais Aguardados: \n"));
-        listTrendingMovies();
+        listAnticipatedMovies();
         break;
       case 3:
         searchMovies();
