@@ -1,10 +1,12 @@
-import { log } from "../../constants";
 import chalk from "chalk";
 import prompts from "prompts";
+import { log } from "../../constants";
+import { searchMovies } from "../api/searchMovies";
+import { listPopularMovies, listTrendingMovies } from "../api/listMovies";
 
-const menu = async () => {
+const mainMenu = async () => {
   try {
-    console.clear();
+    // console.clear();
     log(
       chalk.bold.italic.underline(
         "Bem vindo(a) ao menu principal da aplicação!"
@@ -13,7 +15,7 @@ const menu = async () => {
     log(chalk.italic.yellow("Opções: "));
     log(chalk.cyan("1 - Listar filmes mais populares"));
     log(chalk.cyan("2 - Listar filmes mais aguardados"));
-    log(chalk.cyan("3 - Pesquisar filme"));
+    log(chalk.cyan("3 - Pesquisar filmes"));
 
     const askMenuOption = await prompts({
       type: "number",
@@ -33,7 +35,7 @@ const menu = async () => {
         listTrendingMovies();
         break;
       case 3:
-        searchMovie();
+        searchMovies();
         break;
     }
   } catch (err) {
@@ -41,4 +43,4 @@ const menu = async () => {
   }
 };
 
-export { menu };
+export { mainMenu };
