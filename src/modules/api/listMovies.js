@@ -1,5 +1,6 @@
 import { API } from "./index.js";
 import { log, chalk } from "../../log";
+import { listMoviesMenu } from "../menu";
 
 const listPopularMovies = async () => {
   try {
@@ -13,6 +14,8 @@ const listPopularMovies = async () => {
         )} - ${chalk.italic(`Ano: ${movie.year}`)}`
       );
     });
+
+    listMoviesMenu(results, "popularMovies");
   } catch (err) {
     console.error(err);
   }
@@ -28,10 +31,12 @@ const listAnticipatedMovies = async () => {
         `${chalk.yellow(index + 1)} - ${chalk.bold(
           item.movie.title
         )} - ${chalk.italic.underline(
-          `Nível de Hype: ${item.list_count}`
+          `Menções na Internet: ${item.list_count}`
         )} - ${chalk.italic(`Ano Lançamento: ${item.movie.year}`)}`
       );
     });
+
+    listMoviesMenu(results, "popularMovies");
   } catch (err) {
     console.error(err);
   }
