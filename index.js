@@ -1,7 +1,4 @@
-import { API } from "./src/modules/api";
-import { menu } from "./src/modules/menu";
-import chalk from "chalk";
-import prompts from "prompts";
+import { mainMenu } from "./src/modules/menu";
 
 mainMenu();
 

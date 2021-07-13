@@ -1,9 +1,11 @@
-import { API } from "./api/index";
+import { API } from "./index.js";
 
 const listPopularMovies = async () => {
   try {
-    const response = API.get(`movies/popular`);
-    const { data } = response;
+    const response = await API.get("movies/popular");
+    const { results } = response;
+
+    console.log(results);
   } catch (err) {
     console.error(err);
   }
