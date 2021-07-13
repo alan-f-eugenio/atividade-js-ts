@@ -4,7 +4,7 @@ import { listMoviesMenu } from "../menu";
 
 const listPopularMovies = async () => {
   try {
-    const response = await API.get("movies/popular");
+    const response = await API.get("movies/popular?extended=full");
     const { results } = response;
 
     results.forEach((movie, index) => {
@@ -36,7 +36,7 @@ const listAnticipatedMovies = async () => {
       );
     });
 
-    listMoviesMenu(results, "popularMovies?extended=full");
+    listMoviesMenu(results, "anticipatedMovies");
   } catch (err) {
     console.error(err);
   }

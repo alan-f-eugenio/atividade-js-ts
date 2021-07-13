@@ -2,7 +2,7 @@ import prompts from "prompts";
 import { log, chalk } from "../../log";
 import { searchMovies } from "../api/searchMovies";
 import { listPopularMovies, listAnticipatedMovies } from "../api/listMovies";
-import { summaryByListPosition } from "../api/listMovies";
+import { summaryByListPosition } from "../api/summaryMovies";
 
 const mainMenu = async (firstTime = true) => {
   try {
@@ -58,31 +58,31 @@ const listMoviesMenu = async (list, origin) => {
     log(chalk.cyan("1 - Pequisar a respeito de um dos Filmes"));
     log(chalk.cyan("2 - Retornar ao Menu Princial"));
 
-    const askMenuOption = await prompts({
-      type: "number",
-      name: "option",
-      message: "Qual das opções deseja?",
-      validate: (option) =>
-        option > 0 && option < 3
-          ? true
-          : "Opção inválida, digite uma das opções acima.",
-    });
-    switch (askMenuOption.option) {
-      case 1:
-        const movieListOption = await prompts({
-          type: "number",
-          name: "position",
-          message: "Digite o número do filme da lista:",
-          validate: (option) =>
-            option > 0 && option < 11
-              ? true
-              : "Opção inválida, digite uma das opções da lista acima.",
-        });
-        summaryByListPosition(list, origin, movieListOption.position);
-        break;
-      case 2:
-        mainMenu(false);
-        break;
+    const askMenuOption = await prompts([
+      {
+        type: "number",
+        name: "option",
+        message: "Qual das opções deseja?",
+        validate: (option) =>
+          option > 0 && option < 3
+            ? true
+            : "Opção inválida, digite uma das opções acima.",
+      },
+      {
+        type: (prev) => (prev == 1 ? "number" : null),
+        name: "position",
+        message: "Digite o número do filme da lista:",
+        validate: (option) =>
+          option > 0 && option < 11
+            ? true
+            : "Opção inválida, digite uma das opções da lista acima.",
+      },
+    ]);
+
+    if (askMenuOption.position) {
+      summaryByListPosition(list, origin, askMenuOption.position);
+    } else {
+      mainMenu(false);
     }
   } catch (err) {
     console.error(err);
