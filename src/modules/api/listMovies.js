@@ -23,7 +23,7 @@ const listPopularMovies = async () => {
 
 const listAnticipatedMovies = async () => {
   try {
-    const response = await API.get("movies/anticipated");
+    const response = await API.get("movies/anticipated?extended=full");
     const { results } = response;
 
     results.forEach((item, index) => {
@@ -36,7 +36,7 @@ const listAnticipatedMovies = async () => {
       );
     });
 
-    listMoviesMenu(results, "popularMovies");
+    listMoviesMenu(results, "popularMovies?extended=full");
   } catch (err) {
     console.error(err);
   }
