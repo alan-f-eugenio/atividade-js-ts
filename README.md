@@ -30,4 +30,5 @@ Requisitos necessários para a execução do projeto:
 
 ### Execução
 
+- Para fazer o build da aplicação utilize `npm run build`
 - Para executar a aplicação utilize `npm start`
