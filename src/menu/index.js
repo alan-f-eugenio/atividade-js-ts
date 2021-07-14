@@ -1,5 +1,5 @@
 import prompts from "prompts";
-import { log, chalk } from "../../log";
+import { log, chalk } from "../log";
 import { summaryByListPosition } from "../api/summaryMovies";
 import {
   listMovies,

@@ -1,5 +1,5 @@
 import { API } from "./index.js";
-import { log, chalk } from "../../log";
+import { log, chalk } from "../log";
 import { listMoviesMenu } from "../menu";
 
 const listMovies = (list, origin) => {

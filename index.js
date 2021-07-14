@@ -1,3 +1,3 @@
-import { mainMenu } from "./src/modules/menu";
+import { mainMenu } from "./src/menu";
 
 mainMenu();

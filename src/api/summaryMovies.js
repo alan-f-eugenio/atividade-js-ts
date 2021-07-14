@@ -1,6 +1,6 @@
 import humanizeDuration from "humanize-duration";
 import { summaryMovieMenu } from "../menu";
-import { log, chalk } from "../../log";
+import { log, chalk } from "../log";
 
 const summaryMovie = (movie, list, origin) => {
   console.clear();
