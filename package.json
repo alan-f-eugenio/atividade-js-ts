@@ -2,10 +2,11 @@
   "name": "atividade-js-ts",
   "version": "1.0.0",
   "description": "Atividade avaliativa de Javascript e Typescript da Pós Dev Fullstack JS - UP 2021",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx -p @babel/core -p @babel/node babel-node --presets @babel/preset-env index.js"
+    "build": "npx tsc --build",
+    "start": "npx -p @babel/core -p @babel/node babel-node --presets @babel/preset-env dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,10 +19,11 @@
   },
   "homepage": "https://github.com/alan349/atividade-js-ts#readme",
   "dependencies": {
-    "@babel/core": "^7.14.6",
     "@babel/node": "^7.14.7",
-    "@babel/preset-env": "^7.14.7",
     "@babel/register": "^7.14.5",
+    "@types/chalk": "^2.2.0",
+    "@types/humanize-duration": "^3.25.1",
+    "@types/prompts": "^2.0.14",
     "axios": "^0.21.1",
     "babel-preset-env": "^1.7.0",
     "chalk": "^4.1.1",
