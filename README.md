@@ -1,7 +1,7 @@
 # atividade-js-ts
 
-Atividade avaliativa de Javascript e Typescript da Pós Dev Fullstack JS - UP 2021\
-A apliação tem como objetivo exibir uma interface onde o usuário poderá escolher uma das listas de filmes dispoíveis pela API Trakt.TV, onde então irá poder selecionar um dos filmes para ver mais detalhes a respeito.
+Atividade avaliativa de Javascript e Typescript da Pós Dev Fullstack JS - UP 2021
+- A apliação tem como objetivo exibir uma interface onde o usuário poderá escolher uma das listas de filmes disponíveis pela API Trakt.TV, onde então irá poder selecionar um dos filmes para ver mais detalhes a respeito.
 
 ## Requisitos
 Requisitos necessários para a execução do projeto:
