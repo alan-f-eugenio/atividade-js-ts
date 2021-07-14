@@ -13,7 +13,7 @@ Requisitos necessários para a execução do projeto:
 - **Para Solicitar Input do Usuário:** Prompts (https://github.com/terkelg/prompts)
 - **Para Estilizar Mensagens:** Chalk (https://github.com/chalk/chalk)
 - **Para Formatar Duração dos Filmes:** HumanizeDuration (https://github.com/EvanHahn/HumanizeDuration.js)
-- **Para Converter/Compilar o Código para ES6:** HumanizeDuration (https://github.com/EvanHahn/HumanizeDuration.js)
+- **Para Converter/Compilar o Código para ES6:** HumanizeDuration (https://github.com/babel/babel)
 
 ### Dependências Externas
 - API Trakt.TV (https://trakt.docs.apiary.io/)
