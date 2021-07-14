@@ -11,7 +11,7 @@ const listPopularMovies = async () => {
       log(
         `${chalk.yellow(index + 1)} - ${chalk.bold(
           movie.title
-        )} - ${chalk.italic(`Ano: ${movie.year}`)}`
+        )} - ${chalk.italic(`Ano de Lançamento: ${movie.year}`)}`
       );
     });
 
@@ -32,7 +32,7 @@ const listAnticipatedMovies = async () => {
           item.movie.title
         )} - ${chalk.italic.underline(
           `Menções na Internet: ${item.list_count}`
-        )} - ${chalk.italic(`Ano Lançamento: ${item.movie.year}`)}`
+        )} - ${chalk.italic(`Ano de Lançamento: ${item.movie.year}`)}`
       );
     });
 
@@ -42,4 +42,25 @@ const listAnticipatedMovies = async () => {
   }
 };
 
-export { listPopularMovies, listAnticipatedMovies };
+const listRecommendedMovies = async () => {
+  try {
+    const response = await API.get("movies/anticipated?extended=full");
+    const { results } = response;
+
+    results.forEach((item, index) => {
+      log(
+        `${chalk.yellow(index + 1)} - ${chalk.bold(
+          item.movie.title
+        )} - ${chalk.italic.underline(
+          `Número de Recomendações: ${item.user_count}`
+        )} - ${chalk.italic(`Ano de Lançamento: ${item.movie.year}`)}`
+      );
+    });
+
+    listMoviesMenu(results, "recommendedMovies");
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+export { listPopularMovies, listAnticipatedMovies, listRecommendedMovies };

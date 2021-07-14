@@ -1,3 +1,0 @@
-const searchMovies = () => {};
-
-export { searchMovies };

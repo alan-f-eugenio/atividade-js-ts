@@ -17,7 +17,7 @@ const mainMenu = async (firstTime = true) => {
     log(chalk.italic.yellow("Opções: "));
     log(chalk.cyan("1 - Listar Top 10 Filmes mais Populares"));
     log(chalk.cyan("2 - Listar Top 10 Filmes mais Aguardados"));
-    log(chalk.cyan("3 - Pesquisar Filmes"));
+    log(chalk.cyan("3 - Listar Top 10 Recomendações da Semana"));
 
     const askMenuOption = await prompts({
       type: "number",
@@ -39,7 +39,8 @@ const mainMenu = async (firstTime = true) => {
         listAnticipatedMovies();
         break;
       case 3:
-        searchMovies();
+        log(chalk.bold.italic("Top 10 Recomendações da Semana: \n"));
+        listRecommendedMovies();
         break;
     }
   } catch (err) {
